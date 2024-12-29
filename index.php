@@ -24,9 +24,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    if(formId === "signupForm") {
-                        alert(data.message);
-                    }
+                    alert(data.message);
                     window.location.href = "backend/2fa.php";
                 } else {
                     alert(data.message);

@@ -11,7 +11,7 @@
             throw new Exception("Headers already sent. Cannot set cookie.");
         }
         setcookie('auth_token', '', [
-            'expires' => time() - 3600, // Past expiry time to delete the cookie
+            'expires' => time() - 3600,
             'path' => '/',
             'domain' => 'sites.local',
             'secure' => true,
@@ -20,10 +20,10 @@
         ]);
         setcookie('auth_token', $jwt, [
             'expires' => time() + 3600,
-            'path' => '/', // Make sure this matches the existing cookie's path
-            'secure' => true, // Match existing cookie's 'secure' flag
+            'path' => '/',
+            'secure' => true,
             'httponly' => true,
-            'samesite' => 'Strict' // Match the 'samesite' attribute
+            'samesite' => 'Strict'
         ]);
         error_log("Cookie set: " . ($_COOKIE['auth_token'] ?? 'Not Set'));
     }
